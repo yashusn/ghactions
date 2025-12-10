@@ -1,15 +1,24 @@
+---
 name: java 21
-on: push 
-jobs: 
-  java-job: 
+on: push
+jobs:
+  java-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Verify Java version
+        run: java --version
+  new-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
       - uses: actions/setup-java@v5
         with:
-            distribution: 'temurin'
-            java-version: '21'
-            # cache: 'maven'
-            # cache-dependency-path: 'sub-project/pom.xml' # optional
+          distribution: temurin
+          java-version: "17"
       - name: Verify Java version
         run: java --version
