@@ -11,4 +11,4 @@ jobs:
             java-version: '21'
             # cache: 'maven'
             # cache-dependency-path: 'sub-project/pom.xml' # optional
-            -run: echo java --version
+            -run: echo "java --version"
